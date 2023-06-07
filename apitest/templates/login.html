@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<!--<html lang="en">-->
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Autotest</title>
+</head>
+<style> body{text-align:center} </style>
+<body>
+<div>
+    <font size="1">
+        <h1>一见测试平台</h1>
+    </font>
+    <form method="post" action="/login/">
+        {% csrf_token &}
+        <br> <a>&nbsp;&nbsp;用户名:</a><input name="username" type="text" placeholder="username">
+        <br><br> <a>&nbsp;&nbsp;密码：</a><input name="password" type="password" placeholder="password">
+        <br>{{ error }}<br>
+        <button id="submit" type="submit">登录</button>
+    </form>
+</div>
+</body>
+</html>

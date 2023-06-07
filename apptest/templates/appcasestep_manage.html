@@ -1,0 +1,73 @@
+<!--<!DOCTYPE html>-->
+<html lang="zh-CN">
+<head>
+  {% load bootstrap4 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+<!--    <meta charset="UTF-8">-->
+    <title>一见测试平台</title>
+</head>
+<body role="document">
+<!-- 导航栏 -->
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+  <div class="containet">
+    <a class="navbar-brand" href="#">&nbsp;</a>
+    <ul class="nav justify-content-center"></ul>
+    <ul class="nav justify-content-end">
+      <li class="nav-link">
+        <a style="color:white" href="#">{{user}}</a>
+      </li>
+      <li class="nav-link">
+        <a style="color:white" href="/logout/">退出</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<!-- 流程测试步骤 -->
+<div class="row" style="padding-top:70px;">
+  <div class="col-md-ll">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+          <th>所属产品</th>
+          <th>所属用例</th>
+          <th>步骤</th>
+          <th>定位方式</th>
+          <th>控制元素</th>
+          <th>操作方法</th>
+          <th>测试数据</th>
+          <th>验证数据</th>
+          <th>测试结果</th>
+          <th>时间</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for appcasestep in appcasesteps %}
+      <tr>
+          <td>{{appcasesetp.Appcase.Product.productname}}</td>
+          <td>case{{appcasesetp.Appcase.id}}:{{appcasesetp.Appcase.appcasename}}</td>
+<!--          <td>{{appcasesetp.Appcase.appcasename}}</td>-->
+          <td>{{appcasesetp.appteststep}}:{{appcasesetp.apptestobjname}}</td>
+<!--          <td>{{appcasesetp.apptestobjname}}</td>-->
+          <td>{{appcasesetp.appfindmethod}}</td>
+          <td>{{appcasesetp.appevelement}}</td>
+          <td>{{appcasesetp.appoptmethod}}</td>
+          <td>{{appcasesetp.apptestdata}}</td>
+          <td>{{appcasesetp.appassertdata}}</td>
+          <td>{% if appcasesetp.apptestresult == 1 %}
+              <a style="color:green">{{appcasesetp.apptestresult}}</a>
+              {% else %}
+              <a style="color:red">{{appcasesetp.apptestresult}}</a>
+              {% endif %}
+          </td>
+          <td>{{appcasesetp.create_time}}</td>
+      </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>
+
+
