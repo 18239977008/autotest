@@ -8,8 +8,10 @@ $ pip install django
 ```bash
 $ https://downloads.mysql.com/archives/installer/
 ```
-创建数据库
-修改autotest文件下的settings.py文件下
+##创建数据库
+
+###修改autotest文件下的settings.py文件下
+```python
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -20,4 +22,6 @@ DATABASES = {
         'PORT':'3306',   # 端口
     }
 }
+```
+
 
